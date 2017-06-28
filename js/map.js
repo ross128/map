@@ -11,6 +11,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		format: 'image/png',
 	});
 
+	var ortho = L.tileLayer.wms("http://www.wms.nrw.de/geobasis/wms_nw_dop20", {
+		layers: 'nw_dop20',
+		format: 'image/png',
+	});
+
+	var hist_ortho = L.tileLayer.wms("https://www.wms.nrw.de/geobasis/wms_nw_histortho_1988-1994", {
+		layers: 'nw_histortho_1988-1994',
+		format: 'image/png',
+	});
+
 	var map = L.map('map', {
 		center: [51, 6.3],
 		zoom: 10,
@@ -21,6 +31,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		'Mapnik': osm,
 		'Tranchot': tranchot,
 		'Tranchot Info': tranchot_info,
+		'Orthophotos': ortho,
+		'Orthophotos (1988-1994)': hist_ortho,
 	}).addTo(map);
 	
 });
